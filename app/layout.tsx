@@ -1,5 +1,8 @@
 // Css
 import "@/styles/globals.css";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 // Next
 import { Metadata } from "next";
@@ -39,16 +42,11 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <div className="relative flex flex-col h-screen">
-          <div className="py-2">
-            <Navbar />
-          </div>
-          <main className="container mx-auto w-full pt-16 px-4 flex-grow">
+        <div className="relative flex flex-col">
+          <Navbar />
+          <main className=" flex flex-col mx-auto w-full">
             {children}
           </main>
-          <footer className="w-full flex items-center justify-center py-3">
-
-          </footer>
         </div>
       </body>
     </html>

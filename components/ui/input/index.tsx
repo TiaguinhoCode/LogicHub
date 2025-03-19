@@ -11,8 +11,9 @@ export default function Input({ ...rest }: InputProps) {
     return (
         <Inpt
             classNames={{
-                inputWrapper: "bg-default-100",
                 input: "text-sm",
+                innerWrapper: "",
+                inputWrapper: "h-11 min-h-11 border border-gray-300 rounded-md data-[hover=true]:border-gray-400 focus:border-[#006fee] group-data-[focus=true]:border-[#006fee]"
             }}
             labelPlacement="outside"
             {...rest}

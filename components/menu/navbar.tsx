@@ -10,7 +10,7 @@ import {
 } from "@heroui/navbar";
 import { Link } from "@heroui/link";
 import { link as linkStyles } from "@heroui/theme";
-import { FaDiscord, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaGithub, FaWhatsapp } from 'react-icons/fa';
 
 // Next
 import NextLink from "next/link";
@@ -25,9 +25,9 @@ import { Button } from "../ui/button";
 
 export const Navbar = () => {
   return (
-    <HeroUINavbar maxWidth="2xl" position="sticky" classNames={{ base: "bg-transparent", }}>
+    <HeroUINavbar maxWidth="2xl" position="sticky" classNames={{ base: "bg-[#F5F5F5]", }}>
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand as="li" className="gap-3 py-2 max-w-fit">
+        <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
           </NextLink>
@@ -55,13 +55,10 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
-            <FaDiscord className="text-[#5865F2] text-2xl" />
-          </Link>
-          <Link isExternal aria-label="Github" href={siteConfig.links.github}>
+          {/* <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <FaInstagram className="text-[#E1306C] text-2xl" />
-          </Link>
-          <Link isExternal aria-label="Github" href={siteConfig.links.github}>
+          </Link> */}
+          <Link isExternal aria-label="Github" href={siteConfig.links.whatsApp}>
             <FaWhatsapp className="text-[#25D366] text-2xl" />
           </Link>
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>

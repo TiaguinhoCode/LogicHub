@@ -1,40 +1,61 @@
-// Bibliotecas
-
-// Utils
+'use client'
 
 // Componentes
-import { Button } from "@/components/ui/button";
+import FormContacts from "@/components/forms/contacts";
+import Projects from "@/components/projects";
+import Service from "@/components/service";
+import Steps from "@/components/steps";
+import TypeText from "@/components/ui/animations/TypingText";
+import Contacts from './../components/contancts/index';
+
+// Bibliotecas
+import { motion } from 'framer-motion';
+import { FaWhatsapp } from "react-icons/fa";
+
+function FloatingWhatsAppButton() {
+  return (
+    <motion.a
+      href="https://wa.me/558587806692?text=Ol%C3%A1%2C%20estou%20interessado%20em%20seus%20servi%C3%A7os%21"
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
+      className="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-lg z-50 hover:bg-green-600"
+    >
+      <FaWhatsapp className="w-7 h-7" />
+    </motion.a>
+  );
+}
 
 export default function Home() {
   return (
-    <section className="container mx-auto px-4 py-12 md:py-24">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
-            Olá! Eu sou <br />
-            <span className="text-[#006fee]">Tiago Rafael</span>
-          </h1>
-          <p className="text-gray-600 mb-6">
-            Desenvolvedor de Sistemas e Analista de Dados com 2+ anos de experiência. Especialista em <strong>landing pages</strong>, <strong>softwares web</strong> e <strong>automação de tarefas</strong>. Transformo dados em decisões estratégicas e soluções eficientes.
-          </p>
-          <Button color="success" size="lg" className="w-1/3 text-white font-extrabold">
-            Vamos Trabalhar Juntos!
-          </Button>
-        </div>
-        <div className="relative">
-          <img
-            // src="https://i.pravatar.cc/500"
-            alt="Profile"
-            className="rounded-2xl w-full max-w-md mx-auto"
-          />
-          <div className="absolute top-4 right-4 bg-white rounded-xl p-3 shadow-lg">
-            <div className="flex items-center gap-2">
-              {/* <Icon icon="lucide:award" className="text-yellow-500 text-xl" /> */}
-              <span className="text-sm font-medium">Best Design Awards</span>
-            </div>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <section className="container mx-auto flex flex-col items-center justify-center min-h-screen w-full px-4">
+        <div className="max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div className="flex flex-col justify-center text-center md:text-left">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800">
+              Transforme suas ideias em
+              <TypeText text="soluções digitais" className="text-blue-600 pb-3" />
+            </h1>
+            <p className="text-lg text-gray-600">
+              Mais do que escrever códigos, desenvolvo landing pages envolventes, softwares web sob medida e automações inteligentes. Com experiência comprovada, transformo dados em relatórios dinâmicos e intuitivos, auxiliando CEOs e tomadores de decisão a traçar estratégias assertivas para acelerar o crescimento do seu negócio.
+            </p>
           </div>
+          <FormContacts />
         </div>
-      </div>
-    </section>
+      </section>
+
+      <Service />
+      <Steps />
+      <Projects />
+      <Contacts />
+
+      <FloatingWhatsAppButton />
+    </motion.main>
   );
 }

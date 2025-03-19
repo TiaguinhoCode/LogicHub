@@ -13,8 +13,8 @@ export const Logo: React.FC = () => (
       priority
       src={Slogan}
       alt="Slogan"
-      className="w-10 sm:w-14"
+      className="w-10 sm:w-12"
     />
-    <p className="font-extrabold sm:text-xl font-mono uppercase text-inherit">LogicHub</p>
+    <p className="font-extrabold sm:text-xl font-mono text-inherit">LogicHub</p>
   </main>
 );
