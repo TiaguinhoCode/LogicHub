@@ -17,7 +17,7 @@ import NextLink from "next/link";
 import clsx from "clsx";
 
 // Utils
-import { siteConfig } from "@/config/site";
+import { siteConfig } from "@/settings/site";
 
 // Componentes
 import { Logo } from "@/components/icons";

@@ -2,7 +2,7 @@
 import * as React from "react";
 
 // logo
-import Slogan from "@/public/slogan.svg"
+import Slogan from "@/public/slogan.png"
 
 // Next
 import Image from "next/image";
@@ -13,8 +13,8 @@ export const Logo: React.FC = () => (
       priority
       src={Slogan}
       alt="Slogan"
-      className="w-10 sm:w-12"
+      className="w-8 sm:w-10"
     />
-    <p className="font-extrabold sm:text-xl font-mono text-inherit">LogicHub</p>
+    <p className="font-extrabold sm:t ext-xl font-mono text-inherit">LogicHub</p>
   </main>
 );

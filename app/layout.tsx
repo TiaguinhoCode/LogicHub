@@ -11,8 +11,8 @@ import { Metadata } from "next";
 import clsx from "clsx";
 
 // Utils
-import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
+import { siteConfig } from "@/settings/site";
+import { fontSans } from "@/settings/fonts";
 
 // Componentes
 import { Navbar } from "@/components/menu/navbar";
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
   },
 };
 
