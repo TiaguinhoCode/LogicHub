@@ -63,7 +63,7 @@ export default function Steps() {
                         </div>
                         <div className="flex justify-center md:justify-start">
                             <motion.div
-                                className="h-16 md:h-28 border-l-4 border-blue-500"
+                                className="h-16 md:h-28 border-l-4 border-blue-500 hidden md:block"
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
@@ -94,5 +94,6 @@ export default function Steps() {
                 ))}
             </div>
         </section>
-    )
+
+    );
 }

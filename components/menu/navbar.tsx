@@ -32,8 +32,8 @@ export const Navbar = () => {
             <Logo />
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start ml-3">
-          {siteConfig.navItems.map((item) => (
+        {/*<ul className="hidden lg:flex gap-4 justify-start ml-3">
+           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
                 className={clsx(
@@ -46,8 +46,8 @@ export const Navbar = () => {
                 {item.label}
               </NextLink>
             </NavbarItem>
-          ))}
-        </ul>
+          ))} 
+        </ul>*/}
       </NavbarContent>
 
       <NavbarContent
@@ -69,7 +69,9 @@ export const Navbar = () => {
           <NavbarMenuToggle />
         </div>
         <NavbarItem className="hidden lg:flex">
-          <Button color="primary" radius="md" variant="shadow" className="font-bold">Contate-nos</Button>
+          <Link href="#contato">
+            <Button color="primary" radius="md" variant="shadow" className="font-bold">Contate-nos</Button>
+          </Link>
         </NavbarItem>
       </NavbarContent>
 
@@ -80,10 +82,10 @@ export const Navbar = () => {
         <Link isExternal aria-label="Github" href={siteConfig.links.github}>
           <FaWhatsapp className="text-[#25D366] text-2xl" />
         </Link>
-        <NavbarMenuToggle />
+        {/* <NavbarMenuToggle /> */}
       </NavbarContent>
 
-      <NavbarMenu>
+      {/* <NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
@@ -103,7 +105,7 @@ export const Navbar = () => {
             </NavbarMenuItem>
           ))}
         </div>
-      </NavbarMenu>
+      </NavbarMenu> */}
     </HeroUINavbar>
   );
 };

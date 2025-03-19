@@ -1,5 +1,6 @@
 'use client'
 
+// Bibliotecas
 import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
@@ -42,28 +43,28 @@ export default function Service() {
 
     // Variantes para animação dos cards
     const cardVariants = {
-      hidden: { opacity: 0, y: 20 },
-      visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
     };
 
     return (
         <section className="bg-[#006fee] w-full py-16">
             <div className="container mx-auto px-6">
-                <motion.h2 
-                  className="text-4xl md:text-5xl font-extrabold text-white text-center mb-14"
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
+                <motion.h2
+                    className="text-4xl md:text-5xl font-extrabold text-white text-center mb-14"
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
                 >
                     Soluções Digitais para o Seu Negócio
                 </motion.h2>
                 <motion.p
-                  className="text-lg text-gray-400 text-center max-w-3xl mx-auto mb-12"
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
+                    className="text-lg text-gray-400 text-center max-w-3xl mx-auto mb-12"
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
                 >
                     Desenvolvemos sistemas, automações e relatórios interativos que impulsionam empresas para a era digital.
                 </motion.p>
@@ -79,8 +80,8 @@ export default function Service() {
                 >
                     {services.map((service) => (
                         <SwiperSlide key={service.id} className="px-4">
-                            <motion.div 
-                                className="bg-white rounded-xl shadow-lg p-8 text-center flex flex-col items-center justify-center h-[310px] w-[400px] mx-auto"
+                            <motion.div
+                                className="bg-white rounded-xl shadow-lg p-8 text-center flex flex-col items-center justify-center mx-auto"
                                 variants={cardVariants}
                                 initial="hidden"
                                 whileInView="visible"

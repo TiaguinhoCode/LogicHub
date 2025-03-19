@@ -7,6 +7,7 @@ import { FaEnvelope, FaInstagram, FaPhone } from 'react-icons/fa';
 export default function Contacts() {
     return (
         <motion.section
+            id='contato'
             className="py-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}

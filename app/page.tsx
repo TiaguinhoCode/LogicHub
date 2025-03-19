@@ -38,7 +38,7 @@ export default function Home() {
       <section className="container mx-auto flex flex-col items-center justify-center min-h-screen w-full px-4">
         <div className="max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="flex flex-col justify-center text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800">
+            <h1 className="text-4xl lg:text-6xl font-extrabold text-gray-800">
               Transforme suas ideias em
               <TypeText text="soluções digitais" className="text-blue-600 pb-3" />
             </h1>
