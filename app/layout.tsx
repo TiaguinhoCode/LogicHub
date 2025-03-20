@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: "https://logichub.com.br",
+        url: "/favicon.png",
         width: 1200,
         height: 630,
         alt: "LogicHub - Consultoria em TI e Desenvolvimento de Software",
