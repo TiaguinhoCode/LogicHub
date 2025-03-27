@@ -46,8 +46,16 @@ export default function Contacts() {
                     </div>
                     <div className="flex items-center gap-4">
                         <FaInstagram className="text-gray-800 text-3xl" />
-                        <span className="text-gray-800 text-xl">@Em breve</span>
+                        <a
+                            href="https://www.instagram.com/l0gichub?igsh=ZTFwd2NpYmc1cmw3"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-800 text-xl hover:underline"
+                        >
+                            @L0gichub
+                        </a>
                     </div>
+
                     <div className="flex items-center gap-4">
                         <FaEnvelope className="text-gray-800 text-3xl" />
                         <span className="text-gray-800 text-xl">tiagorafael019@gmail.com</span>

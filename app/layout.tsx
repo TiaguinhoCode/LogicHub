@@ -11,6 +11,8 @@ import { Metadata } from "next";
 // Bibliotecas
 import clsx from "clsx";
 import { ToastContainer } from "react-toastify";
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Utils
 import { siteConfig } from "@/settings/site";
@@ -41,7 +43,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: "/logicHub.png", 
+        url: "/logicHub.jpg",
         width: 1200,
         height: 630,
         alt: "LogicHub - Consultoria em TI e Desenvolvimento de Software",
@@ -74,6 +76,8 @@ export default function RootLayout({
           <Navbar />
           <main className=" flex flex-col mx-auto w-full">
             {children}
+            <SpeedInsights />
+            <Analytics />
             <ToastContainer autoClose={3000} />
           </main>
         </div>
