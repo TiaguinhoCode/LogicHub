@@ -32,7 +32,7 @@ export const siteConfig = {
     github: "https://github.com/TiaguinhoCode",
     insgram: "",
     whatsApp:
-      "https://wa.me/558587806692?text=Ol%C3%A1%2C%20estou%20interessado%20em%20seus%20servi%C3%A7os%21",
+      "https://wa.me/558587805592?text=Ol%C3%A1%2C%20estou%20interessado%20em%20seus%20servi%C3%A7os%21",
     sponsor: "https://patreon.com/jrgarciadev",
   },
 };

@@ -58,7 +58,7 @@ export const Navbar = () => {
           {/* <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <FaInstagram className="text-[#E1306C] text-2xl" />
           </Link> */}
-          <Link isExternal aria-label="Github" href={siteConfig.links.whatsApp}>
+          <Link isExternal aria-label="WhatsApp" href={siteConfig.links.whatsApp}>
             <FaWhatsapp className="text-[#25D366] text-2xl" />
           </Link>
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>

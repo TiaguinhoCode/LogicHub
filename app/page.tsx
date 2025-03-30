@@ -15,7 +15,7 @@ import { FaWhatsapp } from "react-icons/fa";
 function FloatingWhatsAppButton() {
   return (
     <motion.a
-      href="https://wa.me/558587806692?text=Ol%C3%A1%2C%20estou%20interessado%20em%20seus%20servi%C3%A7os%21"
+      href="https://wa.me/558587805592?text=Ol%C3%A1%2C%20estou%20interessado%20em%20seus%20servi%C3%A7os%21"
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0 }}
