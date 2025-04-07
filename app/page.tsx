@@ -12,7 +12,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <>
-      <div className="relative overflow-hidden">
+      <div className="relative w-full overflow-hidden">
         <div className="mx-auto max-w-screen-xl lg:py-16 lg:px-12 py-8 px-4">
           <Started />
           <About />

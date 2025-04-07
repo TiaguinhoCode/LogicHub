@@ -67,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Navbar />
           </header>
 
-          <main className="flex container px-2">
+          <main className="flex w-full px-2">
             {children}
             <SpeedInsights />
             <Analytics />
