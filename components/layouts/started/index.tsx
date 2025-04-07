@@ -103,7 +103,7 @@ export default function Started() {
             </motion.section>
 
             <motion.div
-                className="mt-12 px-4 mx-auto md:max-w-screen-md lg:max-w-screen-lg lg:px-12"
+                className="mt-12 mx-auto w-full"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.2 }}

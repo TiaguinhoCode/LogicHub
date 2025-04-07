@@ -2,8 +2,8 @@
 import About from '@/components/layouts/about';
 import Started from '@/components/layouts/started';
 import Services from "@/components/layouts/services";
-import Benefit from "@/components/benefit";
-import Contacts from "@/components/contacts";
+import Contacts from '@/components/layouts/contacts';
+import Benefit from '@/components/layouts/benefit';
 
 // Bibliotecas
 import { FaWhatsapp } from 'react-icons/fa';
