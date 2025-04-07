@@ -1,8 +1,6 @@
 // React
 import * as React from "react";
 
-import { IconSvgProps } from "@/types";
-
 // Next
 import Image from "next/image";
 
