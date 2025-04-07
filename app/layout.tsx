@@ -1,85 +1,79 @@
 // Css
 import "@/styles/globals.css";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import 'react-toastify/dist/ReactToastify.css'
 
 // Next
 import { Metadata } from "next";
-
-// Bibliotecas
 import clsx from "clsx";
-import { ToastContainer } from "react-toastify";
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from "@vercel/speed-insights/next"
-
-// Utils
-import { siteConfig } from "@/settings/site";
-import { fontSans } from "@/settings/fonts";
 
 // Componentes
-import { Navbar } from "@/components/menu/navbar";
+import { Navbar } from "@/components/navbar";
+import Footer from "@/components/footer";
+
+// Configuração
+import { siteConfig } from "@/config/site";
+import { fontSans } from "@/config/fonts";
+
+// Bibliotecas
+import { ToastContainer } from "react-toastify";
+
+// Vercel
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    template: `%s – ${siteConfig.name}`,
+  },
+  keywords: [
+    "consultoria de TI",
+    "serviços de tecnologia da informação",
+    "suporte técnico para empresas",
+    "infraestrutura de TI",
+    "segurança da informação",
+    "cloud computing",
+    "transformação digital",
+    "sistemas empresariais",
+    "lógica hub",
+    "Logichub consultoria TI",
+    "software",
+    "saas",
+    "desenvolvedor"
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    url: 'https://logichub.com.br',
   },
   description: siteConfig.description,
-  keywords: [
-    "Consultoria em TI",
-    "Desenvolvimento de Software",
-    "Soluções em TI",
-    "Transformação Digital",
-    "Inovação Tecnológica",
-    "Progamação"
-  ],
-  authors: [{ name: "LogicHub", url: "https://logichub.com.br" }],
-  openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    url: "https://logichub.com.br",
-    siteName: siteConfig.name,
-    images: [
-      {
-        url: "/logicHub.jpg",
-        width: 1200,
-        height: 630,
-        alt: "LogicHub - Consultoria em TI e Desenvolvimento de Software",
-      },
-    ],
-    locale: "pt_BR",
-    type: "website",
-  },
   icons: {
     icon: "/favicon.png",
   },
-  manifest: "/site.webmanifest",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html lang="pt-br" suppressHydrationWarning>
       <head />
       <body
         className={clsx(
-          "min-h-screen bg-[#F5F5F5] h-full font-sans antialiased",
-          fontSans.variable,
+          "font-sans antialiased ",
+          fontSans.variable
         )}
       >
-        <div className="relative flex flex-col">
-          <Navbar />
-          <main className=" flex flex-col mx-auto w-full">
+        <div className="flex bg-[#111827] flex-col h-screen overflow-auto">
+          <header className="sticky top-0 z-50">
+            <Navbar />
+          </header>
+
+          <main className="flex container px-2">
             {children}
             <SpeedInsights />
             <Analytics />
             <ToastContainer autoClose={3000} />
           </main>
+          <Footer />
         </div>
       </body>
     </html>

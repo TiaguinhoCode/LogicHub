@@ -1,20 +1,25 @@
 // React
 import * as React from "react";
 
-// logo
-import Slogan from "@/public/slogan.png"
+import { IconSvgProps } from "@/types";
 
 // Next
 import Image from "next/image";
 
-export const Logo: React.FC = () => (
-  <main className="w-full flex items-center justify-center text-center">
+// Imagens
+import slogan from "@/public/img/slogan.png"
+
+export const Logo = () => (
+  <main className="w-full flex py-2 items-center justify-center text-center space-x-1">
     <Image
       priority
-      src={Slogan}
+      src={slogan}
       alt="Slogan"
-      className="w-8 sm:w-10"
+      className="w-14 sm:w-16"
     />
-    <p className="font-extrabold sm:t ext-xl font-mono text-inherit">LogicHub</p>
+    <div className="w-full ">
+      <p className="font-bold text-[20px] text-white">LogicHub</p>
+    </div>
   </main>
 );
+
