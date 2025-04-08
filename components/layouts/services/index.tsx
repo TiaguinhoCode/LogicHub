@@ -24,7 +24,7 @@ export default function Services() {
                 visible: { transition: { staggerChildren: 0.15 } },
             }}
         >
-            <div className="px-4 mx-auto max-w-screen-xl sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-screen-xl sm:px-6 lg:px-8">
                 <span className="text-blue-500 font-bold uppercase tracking-wide">
                     Nossos serviços
                 </span>

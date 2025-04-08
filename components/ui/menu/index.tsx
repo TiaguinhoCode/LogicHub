@@ -63,7 +63,7 @@ export const Navbar = () => {
 
       <NavbarContent justify="end" className="flex-1 items-center gap-4">
         <Link href="https://wa.me/558587805592?text=Ol%C3%A1%2C%20estou%20interessado%20em%20seus%20servi%C3%A7os%21">
-          <Button className="bg-[#3f83f8] rounded-lg text-white px-6 hover:shadow-xl transition">
+          <Button className="bg-[#3f83f8] rounded-lg text-white px-6 hover:shadow-xl transition md:min-w-8 h-8">
             Contratar
           </Button>
         </Link>

@@ -24,7 +24,9 @@ export default function Contacts() {
         e.preventDefault()
         setLoading(true)
 
-        if (name === '' || email === '' || phone === '' || company === '') {
+        const rawPhone = phone?.replace(/\D/g, "");
+
+        if (name === '' || email === '' || phone === '' || company === '' || rawPhone?.length !== 11) {
             toast.error("Por favor, preencha todos os campos obrigatórios.")
             setError(true)
             setLoading(false)
@@ -36,6 +38,7 @@ export default function Contacts() {
             email: email,
             phone: phone,
             company: company,
+            was_attended_to: false,
             createdAt: new Date(),
         };
 
