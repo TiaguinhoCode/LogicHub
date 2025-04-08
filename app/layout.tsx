@@ -21,6 +21,9 @@ import { ToastContainer } from "react-toastify";
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
+// Utils
+import { GoogleAnalytics } from "@/utils/analytics";
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -69,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <main className="flex w-full px-2">
             {children}
+            <GoogleAnalytics />
             <SpeedInsights />
             <Analytics />
             <ToastContainer autoClose={3000} />
