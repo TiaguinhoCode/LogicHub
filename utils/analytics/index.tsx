@@ -1,13 +1,9 @@
 'use client'
 
-// React
-import { useEffect } from 'react'
-
-// Next
 import { usePathname } from 'next/navigation'
+import { useEffect } from 'react'
 import Script from 'next/script'
 
-// Tipagem
 declare global {
     interface Window { dataLayer: any[]; gtag: (...args: any[]) => void }
 }
@@ -16,18 +12,18 @@ export function GoogleAnalytics() {
     const GA_ID = process.env.NEXT_PUBLIC_GA_ID!
     const pathname = usePathname()
 
-    // Dispara um pageview sempre que a rota muda
     useEffect(() => {
         window.gtag('config', GA_ID, { page_path: pathname })
     }, [pathname, GA_ID])
 
     return (
         <>
+            {/* carrega ANTES da hidratação, no <head> */}
             <Script
                 src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-                strategy="afterInteractive"
+                strategy="beforeInteractive"
             />
-            <Script id="gtag-init" strategy="afterInteractive">
+            <Script id="gtag-init" strategy="beforeInteractive">
                 {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

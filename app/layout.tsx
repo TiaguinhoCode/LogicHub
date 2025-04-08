@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-br" suppressHydrationWarning>
-      <head />
+      <head><GoogleAnalytics /></head>
       <body
         className={clsx(
           "font-sans antialiased ",
@@ -72,7 +72,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <main className="flex w-full px-2">
             {children}
-            <GoogleAnalytics />
             <SpeedInsights />
             <Analytics />
             <ToastContainer autoClose={3000} />
