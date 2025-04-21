@@ -6,6 +6,10 @@ import 'react-toastify/dist/ReactToastify.css'
 import { Metadata } from "next";
 import clsx from "clsx";
 
+// Componentes
+import { Navbar } from "@/components/ui/menu";
+import Footer from "@/components/ui/footer";
+
 // Configuração
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -51,21 +55,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function DomainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-br" suppressHydrationWarning>
-      <head><GoogleAnalytics /></head>
-      <body
-        className={clsx(
-          "font-sans antialiased ",
-          fontSans.variable
-        )}
-      >
+    <div className="flex bg-[#111827] flex-col h-screen overflow-auto">
+      <header className="sticky top-0 z-50">
+        <Navbar />
+      </header>
+
+      <main className="flex w-full px-2">
         {children}
-        <SpeedInsights />
-        <Analytics />
-        <ToastContainer autoClose={3000} />
-      </body>
-    </html>
+      </main>
+      <Footer />
+    </div>
   );
 }
