@@ -20,8 +20,8 @@ export function middleware(request: NextRequest) {
     url.pathname = `/${subdomain}${request.nextUrl.pathname}`;
     return NextResponse.rewrite(url);
   } else if (
-    parts.length === 2 &&
-    parts[1] === "logichub.com.br" &&
+    parts.length === 4 &&
+    parts[1] === "logichub" &&
     parts[0] !== "www"
   ) {
     const subdomain = parts[0];
