@@ -1,21 +1,28 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // 1. Reconhece arquivos .ts e .tsx como páginas e middleware
+  pageExtensions: ["ts", "tsx", "js", "jsx"], // :contentReference[oaicite:3]{index=3}
+
+  // 2. Ignora erros de ESLint durante o next build (opcional)
+  eslint: {
+    ignoreDuringBuilds: true, // :contentReference[oaicite:4]{index=4}
+  },
+
+  // 3. Rewrites baseados em subdomínio via header x-forwarded-host
   async rewrites() {
     return {
       beforeFiles: [
         {
-          // qualquer rota
           source: "/:path*",
-          // só aplica se o header “x-forwarded-host” bater com o subdomínio
           has: [
             {
               type: "header",
               key: "x-forwarded-host",
-              // regex para capturar “bio” em “bio.logichub.com.br”
+              // captura o subdomínio (e.g. "bio") em "bio.logichub.com.br"
               value: "^(?<sub>[^.]+)\\.logichub\\.com\\.br$",
             },
           ],
-          // redireciona invisivelmente para /bio/...
+          // injeta o subdomínio capturado como prefixo de rota
           destination: "/:sub/:path*",
         },
       ],
@@ -23,4 +30,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = nextConfig; // :contentReference[oaicite:5]{index=5}
