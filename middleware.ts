@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
   console.log("hostHeader: ", hostHeader);
   console.log("hostname: ", hostname);
   console.log("parts: ", parts);
-
+  // subdomain - localhost
   if (parts.length === 2 && parts[1] === "localhost" && parts[0] !== "www") {
     const subdomain = parts[0];
     const url = request.nextUrl.clone();
@@ -20,7 +20,7 @@ export function middleware(request: NextRequest) {
     url.pathname = `/${subdomain}${request.nextUrl.pathname}`;
     return NextResponse.rewrite(url);
   } else if (
-    parts.length === 4 &&
+    parts.length === 3 &&
     parts[1] === "logichub" &&
     parts[0] !== "www"
   ) {
