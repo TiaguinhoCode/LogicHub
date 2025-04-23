@@ -14,10 +14,14 @@ export function middleware(request: NextRequest) {
   if (parts[0] === "www" || parts.length < 2) {
     return NextResponse.next();
   }
-
   // 3. Extrai subdomínio e resto do domínio
   const subdomain = parts[0];
   const fullDomain = parts.slice(1).join("."); // ex: "localhost" ou "logichub.com.br"
+  console.log("hostHeader", hostHeader);
+  console.log("hostname", hostname);
+  console.log("parts", parts);
+  console.log("subdomain", subdomain);
+  console.log("fullDomain", fullDomain);
 
   // 4. Define quais domínios são válidos para reescrever
   const allowedDomains = ["localhost", "logichub.com.br"];
