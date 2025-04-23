@@ -1,39 +1,51 @@
-// middleware.ts
-import { NextRequest, NextResponse } from "next/server";
+// Next
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+
+const baseUrl = "logichub.com.br";
 
 export function middleware(request: NextRequest) {
-  // 1. Captura o domínio original, priorizando x-forwarded-host
-  const hostHeader =
-    request.headers.get("x-forwarded-host") ||
-    request.headers.get("host") ||
-    "";
-  const hostname = hostHeader.split(":")[0];    // remove eventual :PORT
-  const parts = hostname.split(".");
-
-  // 2. Se for www ou não houver subdomínio, deixa passar sem rewrite
-  if (parts[0] === "www" || parts.length < 2) {
-    return NextResponse.next();
-  }
-
-  // 3. Extrai subdomínio e domínio raiz
-  const subdomain = parts[0];
-  const fullDomain = parts.slice(1).join(".");  // e.g. "localhost" ou "logichub.com.br"
-
-  // 4. Só processa se for um domínio permitido
-  const allowed = ["localhost", "logichub.com.br"];
-  if (!allowed.includes(fullDomain)) {
-    return NextResponse.next();
-  }
-
-  // 5. Reescreve a rota injetando o subdomínio
   const url = request.nextUrl.clone();
-  url.pathname = `/${subdomain}${url.pathname}`;
-  return NextResponse.rewrite(url);
+  const host = request.headers.get("host");
+  const subdomain = host?.split(".")[0];
+
+  if (
+    subdomain === "www" ||
+    subdomain === baseUrl ||
+    url.pathname.endsWith("/not-found")
+  ) {
+    return NextResponse.next();
+  }
+
+  const isValid = isValidSlug(subdomain);
+
+  if (!isValid) {
+    return NextResponse.redirect(
+      new URL(`${url.protocol}//${baseUrl}`, request.url)
+    );
+  }
+
+  return NextResponse.rewrite(
+    new URL(
+      `/bio${subdomain}${url.pathname}${url.search}${url.hash}`,
+      request.url
+    )
+  );
+}
+
+function isValidSlug(slug: string | undefined): boolean {
+  console.log("slug: ", slug);
+
+  if (!slug) return false;
+
+  if (slug === "bio") return true;
+
+  return false;
 }
 
 export const config = {
   matcher: [
-    // ignora API, assets Next.js, imagens, favicon e arquivos estáticos
+    // ignora APIs, assets Next.js e arquivos estáticos
     "/((?!api|_next/static|_next/image|favicon.ico|.*\\..{1,4}$).*)",
   ],
 };
