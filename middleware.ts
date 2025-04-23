@@ -1,42 +1,37 @@
-// Next
+// middleware.ts
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const hostHeader = request.headers.get("host") || "";
-  const url = request.nextUrl.clone();
-
-  const hostname = hostHeader.split(":")[0];
-
+  // 1. Pega primeiro o host “passado pelo proxy” (x-forwarded-host) ou, em último caso, o host normal
+  const hostHeader =
+    request.headers.get("x-forwarded-host") ||
+    request.headers.get("host") ||
+    "";
+  const hostname = hostHeader.split(":")[0]; // remove porta, se existir
   const parts = hostname.split(".");
 
-  console.log("hostHeader: ", hostHeader);
-  console.log("hostname: ", hostname);
-  console.log("parts: ", parts);
-  // subdomain - localhost
-  if (parts.length === 2 && parts[1] === "localhost" && parts[0] !== "www") {
-    const subdomain = parts[0];
-    const url = request.nextUrl.clone();
-    // põe o subdomain como primeiro segmento da rota
-    url.pathname = `/${subdomain}${request.nextUrl.pathname}`;
-    return NextResponse.rewrite(url);
-  } else if (
-    parts.length === 3 &&
-    parts[1] === "logichub" &&
-    parts[0] !== "www"
-  ) {
-    const subdomain = parts[0];
-    const url = request.nextUrl.clone();
-    // põe o subdomain como primeiro segmento da rota
-    url.pathname = `/${subdomain}${request.nextUrl.pathname}`;
-    return NextResponse.rewrite(url);
+  // 2. Se não tiver subdomínio (ou for “www”), deixa passar sem rewrite
+  if (parts[0] === "www" || parts.length < 2) {
+    return NextResponse.next();
   }
 
-  return NextResponse.next();
+  // 3. Extrai subdomínio e resto do domínio
+  const subdomain = parts[0];
+  const fullDomain = parts.slice(1).join("."); // ex: "localhost" ou "logichub.com.br"
+
+  // 4. Define quais domínios são válidos para reescrever
+  const allowedDomains = ["localhost", "logichub.com.br"];
+  if (!allowedDomains.includes(fullDomain)) {
+    return NextResponse.next();
+  }
+
+  // 5. Reescreve a rota injetando o subdomínio como prefixo
+  const url = request.nextUrl.clone();
+  url.pathname = `/${subdomain}${url.pathname}`;
+  return NextResponse.rewrite(url);
 }
 
 export const config = {
-  matcher: [
-    // ignora APIs, assets Next.js e arquivos estáticos
-    "/((?!api|_next/static|_next/image|favicon.ico|.*\\..{1,4}$).*)",
-  ],
+  // aplica em todas as rotas, exceto APIs, assets do Next, imagens e arquivos estáticos
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|.*\\..{1,4}$).*)"],
 };
