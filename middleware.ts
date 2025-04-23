@@ -1,46 +1,37 @@
 // Next
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-
-const baseUrl = "logichub.com.br";
+import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
+  const hostHeader = request.headers.get("host") || "";
   const url = request.nextUrl.clone();
-  const host = request.headers.get("host");
-  const subdomain = host?.split(".")[0];
 
-  if (
-    subdomain === "www" ||
-    subdomain === baseUrl ||
-    url.pathname.endsWith("/not-found")
+  const hostname = hostHeader.split(":")[0];
+
+  const parts = hostname.split(".");
+
+  console.log("hostHeader: ", hostHeader);
+  console.log("hostname: ", hostname);
+  console.log("parts: ", parts);
+  // subdomain - localhost
+  if (parts.length === 2 && parts[1] === "localhost" && parts[0] !== "www") {
+    const subdomain = parts[0];
+    const url = request.nextUrl.clone();
+    // põe o subdomain como primeiro segmento da rota
+    url.pathname = `/${subdomain}${request.nextUrl.pathname}`;
+    return NextResponse.rewrite(url);
+  } else if (
+    parts.length === 4 &&
+    parts[1] === "logichub" &&
+    parts[0] !== "www"
   ) {
-    return NextResponse.next();
+    const subdomain = parts[0];
+    const url = request.nextUrl.clone();
+    // põe o  subdomain como primeiro segmento da rota
+    url.pathname = `/${subdomain}${request.nextUrl.pathname}`;
+    return NextResponse.rewrite(url);
   }
 
-  const isValid = isValidSlug(subdomain);
-
-  if (!isValid) {
-    return NextResponse.redirect(
-      new URL(`${url.protocol}//${baseUrl}`, request.url)
-    );
-  }
-
-  return NextResponse.rewrite(
-    new URL(
-      `/bio${subdomain}${url.pathname}${url.search}${url.hash}`,
-      request.url
-    )
-  );
-}
-
-function isValidSlug(slug: string | undefined): boolean {
-  console.log("slug: ", slug);
-
-  if (!slug) return false;
-
-  if (slug === "bio") return true;
-
-  return false;
+  return NextResponse.next();
 }
 
 export const config = {
