@@ -1,42 +1,34 @@
-// Next
+// middleware.ts
 import { NextRequest, NextResponse } from "next/server";
 
+const ROOT_DOMAIN =
+  process.env.NODE_ENV === "production" ? "logichub.com.br" : "localhost";
+
 export function middleware(request: NextRequest) {
-  const hostHeader = request.headers.get("host") || "";
+  const host = request.headers.get("host")?.split(":")[0] || "";
   const url = request.nextUrl.clone();
 
-  const hostname = hostHeader.split(":")[0];
+  console.log("Host: ", host);
+  console.log("url: ", url);
 
-  const parts = hostname.split(".");
+  // Se for domínio principal (com ou sem www), segue normal
+  if (host === ROOT_DOMAIN || host === `www.${ROOT_DOMAIN}`) {
+    return NextResponse.next();
+  }
 
-  console.log("hostHeader: ", hostHeader);
-  console.log("hostname: ", hostname);
-  console.log("parts: ", parts);
-  // subdomain - localhost
-  if (parts.length === 2 && parts[1] === "localhost" && parts[0] !== "www") {
-    const subdomain = parts[0];
-    const url = request.nextUrl.clone();
-    // põe o subdomain como primeiro segmento da rota
-    url.pathname = `/${subdomain}${request.nextUrl.pathname}`;
-    return NextResponse.rewrite(url);
-  } else if (
-    parts.length === 4 &&
-    parts[1] === "logichub" &&
-    parts[0] !== "www"
-  ) {
-    const subdomain = parts[0];
-    const url = request.nextUrl.clone();
-    // põe o  subdomain como primeiro segmento da rota
-    url.pathname = `/${subdomain}${request.nextUrl.pathname}`;
-    return NextResponse.rewrite(url);
+  // Captura subdomínio (qualquer coisa antes de ".ROOT_DOMAIN")
+  if (host.endsWith(`.${ROOT_DOMAIN}`)) {
+    const subdomain = host.replace(`.${ROOT_DOMAIN}`, "");
+    console.log("parts: ", subdomain);
+    if (subdomain && subdomain !== "www") {
+      console.log(`subdomain: /${subdomain}/${url.pathname}`);
+      url.pathname = `/${subdomain}${url.pathname}`;
+      return NextResponse.rewrite(url);
+    }
   }
 
   return NextResponse.next();
 }
-
 export const config = {
-  matcher: [
-    // ignora APIs, assets Next.js e arquivos estáticos
-    "/((?!api|_next/static|_next/image|favicon.ico|.*\\..{1,4}$).*)",
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|.*\\..{1,4}$).*)"],
 };
