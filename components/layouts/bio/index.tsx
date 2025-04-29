@@ -45,19 +45,28 @@ export default function Bio() {
                     </div>
 
                     <div className="space-y-3 w-full">
-                        <Button className="w-full bg-green-500 hover:bg-green-600 transition-transform transform hover:scale-105" href="https://wa.me/558587805592?text=Ol%C3%A1%2C%20estou%20interessado%20em%20seus%20servi%C3%A7os%21">
+                        {/* <Button className="w-full bg-green-500 hover:bg-green-600 transition-transform transform hover:scale-105" href="https://wa.me/558587805592?text=Ol%C3%A1%2C%20estou%20interessado%20em%20seus%20servi%C3%A7os%21">
                             <p className="flex items-center justify-center gap-2 text-white font-medium">
                                 <FaWhatsapp size={18} />
                                 Agende uma Consulta
                             </p>
-                        </Button>
-
-                        <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:opacity-90 transition-opacity">
-                            <Link href="#contact" className="flex items-center justify-center gap-2 text-white font-medium">
-                                <MdOutlineWeb size={16} />
-                                Visitar Portfolio
+                        </Button> */}
+                        <div>
+                            <Link href="https://wa.me/558587805592?text=Olá,%20estou%20interessado%20em%20seus%20serviços!">
+                                <Button className="w-full bg-green-500 hover:bg-green-600 transition-transform hover:scale-105">
+                                    <FaWhatsapp size={18} />
+                                    Agende uma Consulta
+                                </Button>
                             </Link>
-                        </Button>
+                        </div>
+                        <div>
+                            <Link href="/">
+                                <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:opacity-90 transition-opacity">
+                                    <MdOutlineWeb size={16} />
+                                    Visitar Portfolio
+                                </Button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
 
