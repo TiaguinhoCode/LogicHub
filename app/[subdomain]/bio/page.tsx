@@ -1,6 +1,3 @@
-// Pages
-import NotFound from "../not-found";
-
 // Next
 import { headers } from "next/headers";
 
