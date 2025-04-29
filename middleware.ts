@@ -1,34 +1,42 @@
 // middleware.ts
 import { NextRequest, NextResponse } from "next/server";
 
-const ROOT_DOMAIN =
-  process.env.NODE_ENV === "production" ? "logichub.com.br" : "localhost";
-
 export function middleware(request: NextRequest) {
-  const host = request.headers.get("host")?.split(":")[0] || "";
-  const url = request.nextUrl.clone();
+  // Extrai host sem porta
+  const hostHeader = request.headers.get("host") || "";
+  const host = hostHeader.split(":")[0];
+  console.log("Host recebido:", host);
 
-  console.log("Host: ", host);
-  console.log("url: ", url);
-
-  // Se for domínio principal (com ou sem www), segue normal
-  if (host === ROOT_DOMAIN || host === `www.${ROOT_DOMAIN}`) {
+  // Se for domínio principal (localhost ou logichub.com.br) -> sem reescrita
+  const ROOTS = ["localhost", "logichub.com.br"];
+  if (ROOTS.some((root) => host === root || host === `www.${root}`)) {
     return NextResponse.next();
   }
 
-  // Captura subdomínio (qualquer coisa antes de ".ROOT_DOMAIN")
-  if (host.endsWith(`.${ROOT_DOMAIN}`)) {
-    const subdomain = host.replace(`.${ROOT_DOMAIN}`, "");
-    console.log("parts: ", subdomain);
-    if (subdomain && subdomain !== "www") {
-      console.log(`subdomain: /${subdomain}/${url.pathname}`);
-      url.pathname = `/${subdomain}${url.pathname}`;
-      return NextResponse.rewrite(url);
-    }
+  // Divide em subdomínio + domínio raiz
+  const [subdomain, ...rest] = host.split(".");
+  const rootDomain = rest.join(".");
+  console.log("Subdomínio extraído:", subdomain);
+  console.log("Domínio raiz extraído:", rootDomain);
+
+  // Só reescreve se bater exatamente com o seu domínio de produção
+  if (subdomain !== "www" && ROOTS.includes(rootDomain)) {
+    // Clona URL para ter uma URL absoluta
+    const url = request.nextUrl.clone();
+    url.pathname = `/${subdomain}${url.pathname}`;
+    // Normaliza múltiplas barras
+    url.pathname = url.pathname.replace(/\/+/g, "/");
+    console.log("URL reescrita para:", url.pathname);
+    return NextResponse.rewrite(url);
   }
 
+  // Qualquer outro caso: não interfere
   return NextResponse.next();
 }
+
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|.*\\..{1,4}$).*)"],
+  matcher: [
+    // ignora API, _next e arquivos estáticos
+    "/((?!api|_next/static|_next/image|favicon.ico|.*\\..{1,4}$).*)",
+  ],
 };
