@@ -16,8 +16,6 @@ export function middleware(request: NextRequest) {
   // Divide em subdomínio + domínio raiz
   const [subdomain, ...rest] = host.split(".");
   const rootDomain = rest.join(".");
-  console.log("Subdomínio extraído:", subdomain);
-  console.log("Domínio raiz extraído:", rootDomain);
 
   // Só reescreve se bater exatamente com o seu domínio de produção
   if (subdomain !== "www" && ROOTS.includes(rootDomain)) {
@@ -26,7 +24,6 @@ export function middleware(request: NextRequest) {
     url.pathname = `/${subdomain}${url.pathname}`;
     // Normaliza múltiplas barras
     url.pathname = url.pathname.replace(/\/+/g, "/");
-    console.log("URL reescrita para:", url.pathname);
     return NextResponse.rewrite(url);
   }
 

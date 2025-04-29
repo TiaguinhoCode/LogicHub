@@ -21,6 +21,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleAnalytics } from "@/utils/analytics";
 
 export const metadata: Metadata = {
+  title: "Bio - LogicHub",
   keywords: [
     "consultoria de TI",
     "serviços de tecnologia da informação",
