@@ -4,7 +4,6 @@ import 'react-toastify/dist/ReactToastify.css'
 
 // Next
 import { Metadata } from "next";
-import clsx from "clsx";
 
 // Componentes
 import { Navbar } from "@/components/ui/menu";
@@ -12,17 +11,6 @@ import Footer from "@/components/ui/footer";
 
 // Configuração
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
-
-// Bibliotecas
-import { ToastContainer } from "react-toastify";
-
-// Vercel
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-
-// Utils
-import { GoogleAnalytics } from "@/utils/analytics";
 
 export const metadata: Metadata = {
   title: {

@@ -1,9 +1,12 @@
+'use client'
+
 // Componentes
 import About from '@/components/layouts/about';
 import Started from '@/components/layouts/started';
 import Services from "@/components/layouts/services";
 import Contacts from '@/components/layouts/contacts';
 import Benefit from '@/components/layouts/benefit';
+import Projects from '@/components/layouts/projects';
 
 // Bibliotecas
 import { FaWhatsapp } from 'react-icons/fa';
@@ -18,6 +21,7 @@ export default function Home() {
           <About />
           <Services />
           <Benefit />
+          <Projects />
           <Contacts />
         </div>
       </div>
