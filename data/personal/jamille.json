@@ -1,0 +1,126 @@
+[
+  {
+    "sumary": {
+      "name": "Jamille Araujo de Freitas",
+      "image": "img/jamille.png",
+      "title": "Junior Front-end Developer",
+      "subtitle": "Desenvolvedora de Sistemas",
+      "location": "Fortaleza, CE",
+      "email": "jamille.araujo.freitas2003@gmail.com",
+      "phone": "+55 85 99906-3736",
+      "linkedin": "https://linkedin.com/in/jamille-araujo-1060a01a3",
+      "github": "https://github.com/heyJamille",
+      "website": "/",
+      "summary": "Profissional Front-End com 1 ano de experiência no desenvolvimento de aplicações web, utilizando boas práticas, foco na performance e na experiência do usuário."
+    },
+    "technologies": {
+      "front_end": [
+        { "name": "Angular", "experience": "5 meses" },
+        { "name": "React.js", "experience": "1 ano" },
+        { "name": "Tailwind CSS", "experience": "1 ano" }
+      ],
+      "back_end": [
+        { "name": "Node.js", "experience": "5 meses" }
+      ],
+      "ferramentas": [
+        { "name": "Git & GitHub", "experience": "1 ano" },
+        { "name": "DevOps", "experience": "2 meses" }
+      ],
+      "metodologias": [{ "name": "Scrumban", "experience": "2 meses" }],
+      "outras_tecnologias": [
+        { "name": "Python", "experience": "Estudos" }
+      ]
+    },
+    "projects": [
+      {
+        "name": "Sistema de Faturamento",
+        "description": "Sistema de faturamento que permite às empresas gerenciar e organizar suas faturas de maneira ágil, simples e eficiente.",
+        "technologies": [
+          "Angular",
+          "TailwindCSS",
+          "TypeScript",
+          "Git & GitHub",
+          "Node.js",
+          "Supabase",
+          "Beekeeper"
+        ],
+        "featured": true
+      },
+      {
+        "name": "Sistema Financeiro",
+        "description": "Plataforma financeira desenvolvida para auxiliar no controle e na organização das finanças pessoais, promovendo mais clareza e segurança.",
+        "technologies": [
+          "Angular",
+          "TailwindCSS",
+          "TypeScript",
+          "Git & GitHub",
+          "Node.js",
+          "Supabase",
+          "Beekeeper"
+        ],
+        "featured": false
+      },
+      {
+        "name": "Catálogo Pet Shop",
+        "description": "Catálogo online de pet shop com opções de compra de produtos, proporcionando uma experiência prática e completa para os clientes.",
+        "technologies": [
+          "React.js",
+          "TailwindCSS",
+          "Node.js"
+        ],
+        "featured": false
+      }
+    ],
+    "experiences": [
+      {
+        "company": "IFCE Campus Maracacaú",
+        "position": "Estagiário de TI - Suporte",
+        "period": "Jan 2021 - Dez 2023",
+        "duration": "3 anos",
+        "location": "Maracanaú, CE",
+        "type": "Presencial",
+        "description": "Responsável por formatação, manutenção de computadores (preventiva e corretiva), instalação de softwares, criação de manuais, atendimentos de chamados via Suap e atendimento ao cliente",
+        "technologies": ["Windows 10", "Windows 11", "Ubuntu"]
+      },
+      {
+        "company": "Calila Administração e Comércio",
+        "position": "Estagiário de TI - Infraestrutura",
+        "period": "Sep 2024 - Jun 2025",
+        "duration": "9 Meses",
+        "location": "Fortaleza, CE",
+        "type": "Presencial",
+        "description": "Responsável pela instalação de softwares, suporte técnico básico em redes de computadores, utilização do Active Directory, gestão de contas e atendimento de chamados via GLPI",
+        "technologies": ["Windows 10", "Windows 11", "Ubuntu", "AD"]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Estácio SA",
+        "degree": "Bacharelado em Ciência da Computação",
+        "period": "2022 - Presente",
+        "grade": "CRA: 9.1/10",
+        "description": "Formação sólida em algoritmos, estruturas de dados, engenharia de software e inteligência artificial. Projeto de conclusão focado em machine learning aplicado a sistemas web."
+      },
+      {
+        "institution": "Imparh",
+        "degree": "Curso Inglês",
+        "description": "Curso do básico até o intermediário."
+      },
+      {
+        "institution": "UECE",
+        "degree": "Curso de Ciência de Dados",
+        "description": "Curso do básico ao avançado em ciência de dados."
+      },
+      {
+        "institution": "Udemy",
+        "degree": "Curso de Figma",
+        "description": "Formação sólida em algoritmos, estruturas de dados, engenharia de software e inteligência artificial. Projeto de conclusão focado em machine learning aplicado a sistemas web."
+      },
+      {
+        "institution": "Udemy",
+        "degree": "Curso Wordpress",
+        "description": "Formação sólida em algoritmos, estruturas de dados, engenharia de software e inteligência artificial. Projeto de conclusão focado em machine learning aplicado a sistemas web."
+      }
+    ]
+  }
+]

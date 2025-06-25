@@ -6,38 +6,65 @@ export const siteConfig = {
     "Consultoria em TI e desenvolvimento de software sob medida para empresas, proporcionando inovação, eficiência e transformação digital.",
   navItems: [
     {
-      label: "Início",
-      href: "#home",
+      label: "Home",
+      href: "/",
     },
     {
-      label: "Sobre",
-      href: "#about",
+      label: "Docs",
+      href: "/docs",
     },
     {
-      label: "Serviços",
-      href: "#services",
+      label: "Pricing",
+      href: "/pricing",
     },
     {
-      label: "Beneficio",
-      href: "#benefits",
+      label: "Blog",
+      href: "/blog",
+    },
+    {
+      label: "About",
+      href: "/about",
     },
   ],
   navMenuItems: [
     {
-      label: "Início",
-      href: "#home",
+      label: "Profile",
+      href: "/profile",
     },
     {
-      label: "Sobre",
-      href: "#about",
+      label: "Dashboard",
+      href: "/dashboard",
     },
     {
-      label: "Serviços",
-      href: "#services",
+      label: "Projects",
+      href: "/projects",
     },
     {
-      label: "Beneficio",
-      href: "#benefits",
+      label: "Team",
+      href: "/team",
+    },
+    {
+      label: "Calendar",
+      href: "/calendar",
+    },
+    {
+      label: "Settings",
+      href: "/settings",
+    },
+    {
+      label: "Help & Feedback",
+      href: "/help-feedback",
+    },
+    {
+      label: "Logout",
+      href: "/logout",
     },
   ],
+  links: {
+    github: "https://github.com/heroui-inc/heroui",
+    twitter: "https://twitter.com/hero_ui",
+    docs: "https://heroui.com",
+    discord: "https://discord.gg/9b6yyZKmH4",
+    sponsor: "https://patreon.com/jrgarciadev",
+  },
 };

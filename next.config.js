@@ -6,16 +6,9 @@ const nextConfig = {
 
   async rewrites() {
     return [
-      // root → /domain
       {
-        source: "/",
-        destination: "/domain",
-      },
-      // subdomínio (prefixo dinâmico)
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "([^\\.]+)\\.logichub\\.com\\.br" }],
-        destination: "/:host/:path*",
+        source: "/curriculo",
+        destination: "/curriculum",
       },
     ];
   },

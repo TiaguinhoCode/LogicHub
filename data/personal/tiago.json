@@ -1,0 +1,166 @@
+[
+  {
+    "sumary": {
+      "name": "Tiago Rafael dos Santos Oliveira",
+      "image": "img/tiago.jpg",
+      "title": "Junior Full Stack Developer",
+      "subtitle": "Desenvolvedor de Sistemas",
+      "location": "Fortaleza, CE",
+      "email": "tiagorafael019@gmail.com",
+      "phone": "+55 85 98780-5592",
+      "linkedin": "linkedin.com/in/tiag0rafael",
+      "github": "github.com/TiaguinhoCode",
+      "website": "/",
+      "summary": "Sou um desenvolvedor apaixonado por transformar ideias em soluções digitais eficientes. Com mais de 1 ano e meio de experiência, atuo como Full Stack focando em desempenho, escalabilidade e uma excelente experiência do usuário. Tenho forte domínio de arquiteturas modernas, trabalho em equipe e melhoria contínua."
+    },
+    "technologies": {
+      "front_end": [
+        { "name": "Next.js", "experience": "8 meses" },
+        { "name": "React.js", "experience": "1 ano" },
+        { "name": "Angular", "experience": "4 meses" },
+        { "name": "Tailwind CSS", "experience": "1 ano e 5 meses" },
+        { "name": "Hero UI", "experience": "4 meses" }
+      ],
+      "back_end": [
+        { "name": "Node.js", "experience": "1 ano e 5 meses" },
+        { "name": "Nest.js", "experience": "4 meses" },
+        { "name": "Java", "experience": "2 meses" }
+      ],
+      "ferramentas": [
+        { "name": "Git & GitHub", "experience": "1 ano e 5 meses" },
+        { "name": "DevOps", "experience": "5 meses" }
+      ],
+      "metodologias": [{ "name": "Scrumban", "experience": "1 ano e 5 meses" }],
+      "outras_tecnologias": [
+        { "name": "C#", "experience": "Estudos" },
+        { "name": "Python", "experience": "Estudos" }
+      ]
+    },
+    "projects": [
+      {
+        "name": "DashBoard - Vendas",
+        "description": "Sistema de BI para otimização de estratégias de vendas e gestão de lojas de acessórios para celular. Oferece dashboards interativos, análise de tendências de vendas e monitoramento de KPIs",
+        "technologies": [
+          "Next.js",
+          "NestJs",
+          "TypeScript",
+          "Git & GitHub",
+          "TailwindCSS",
+          "HeroUI",
+          "Firebird",
+          "Docker"
+        ],
+        "featured": true
+      },
+      {
+        "name": "Catálogo Digital",
+        "description": "O Catálogo Digital oferece uma solução moderna e integrada para expor e vender seus produtos eletrônicos (ou qualquer outra linha), com subdomínios customizados, sincronização automática com o ERP, painel de gestão completo e experiência de usuário otimizada — tudo pronto para alavancar suas vendas digitais.",
+        "technologies": [
+          "React.js",
+          "NestJs",
+          "TypeScript",
+          "JavaScript",
+          "Git & GitHub",
+          "TailwindCSS",
+          "Firebird",
+          "Docker"
+        ],
+        "featured": false
+      },
+      {
+        "name": "Jarvis Trade",
+        "description": "Um robô automatizado que extrai dados em tempo real da Binance (preço, volume e ordens), aplica indicadores técnicos reconhecidos (médias móveis, RSI, MACD, Bollinger, entre outros) e combina análises algorítmicas e de inteligência artificial para identificar tendências emergentes. Gera alertas ou executa trades automaticamente, sempre com camadas complementares de gestão de risco incorporadas.",
+        "technologies": ["Python"],
+        "featured": false
+      },
+      {
+        "name": "Analise de Taxas",
+        "description": "Um robô automatizado que importa dados transacionais de maquinetas via CSV, calcula porcentagens de perda causadas por tarifas, gera relatórios PDF com gráficos e indicadores, e distribui os resultados por WhatsApp — entregando informações essenciais para gestão financeira e negociação de custos operacionais.",
+        "technologies": ["Python"],
+        "featured": false
+      }
+    ],
+    "experiences": [
+      {
+        "company": "Indumetal",
+        "position": "Jovem Aprendiz Assistente Administrativo",
+        "period": "Jan 2022 - Mar 2023",
+        "duration": "1 ano e 3 Mêses",
+        "location": "Fortaleza, CE",
+        "type": "Presencial",
+        "description": "Responsável por formatação, manutenção de computadores (preventiva e corretiva) e atendimento ao cliente",
+        "technologies": ["Widowns server 2015", "AD", "GPO"]
+      },
+      {
+        "company": "Indumetal",
+        "position": "Técnico em Manutenção de Equipamentos de Informática",
+        "period": "Abr 2023 - Jul 2023",
+        "duration": "4 Mêses",
+        "location": "Fortaleza, CE",
+        "type": "Presencial",
+        "description": "Responsável pelo diagnóstico e soluções de falhas em hardware, software e redes, assegurando desempenho da equipe.",
+        "technologies": ["Widowns server 2015", "AD", "GPO"]
+      },
+      {
+        "company": "PlayCell",
+        "position": "Desenvolvedor de Sistema JR",
+        "period": "Set 2023 - Jun 2025",
+        "duration": "1 ano e 6 Mêses",
+        "location": "Fortaleza, CE",
+        "type": "Presencial",
+        "description": "Desenvolvi relatórios de desempenho e catálogo digitais , otimizando processos e impulsionando vendas online.",
+        "technologies": [
+          "Next.js",
+          "TailwindCSS",
+          "NestJs",
+          "JavaScript",
+          "TypeScript",
+          "JavaScript",
+          "Firebird",
+          "Node.js",
+          "Python",
+          "React.js"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Estácio SA",
+        "degree": "Bacharelado em Ciência da Computação",
+        "period": "2022 - Presente",
+        "grade": "CRA: 8.8/10",
+        "description": "Formação sólida em algoritmos, estruturas de dados, engenharia de software e inteligência artificial. Projeto de conclusão focado em machine learning aplicado a sistemas web."
+      },
+      {
+        "institution": "Udemy",
+        "degree": "Curso em Next.js",
+        "description": "Formação sólida em algoritmos, estruturas de dados, engenharia de software e inteligência artificial. Projeto de conclusão focado em machine learning aplicado a sistemas web."
+      },
+      {
+        "institution": "Udemy",
+        "degree": "Curso de Mahcine Learning em python",
+        "description": "Formação sólida em algoritmos, estruturas de dados, engenharia de software e inteligência artificial. Projeto de conclusão focado em machine learning aplicado a sistemas web."
+      },
+      {
+        "institution": "Fundção Bradesco",
+        "degree": "Curso de Python",
+        "description": "Formação sólida em algoritmos, estruturas de dados, engenharia de software e inteligência artificial. Projeto de conclusão focado em machine learning aplicado a sistemas web."
+      },
+      {
+        "institution": "Udemy",
+        "degree": "Curso .NET CORE",
+        "description": "Formação sólida em algoritmos, estruturas de dados, engenharia de software e inteligência artificial. Projeto de conclusão focado em machine learning aplicado a sistemas web."
+      },
+      {
+        "institution": "Udemy",
+        "degree": "Curso  Node.JS do Zero a Maestria",
+        "description": "Formação sólida em algoritmos, estruturas de dados, engenharia de software e inteligência artificial. Projeto de conclusão focado em machine learning aplicado a sistemas web."
+      },
+      {
+        "institution": "Udemy",
+        "degree": "SQL do básico ao avançado",
+        "description": "Formação sólida em algoritmos, estruturas de dados, engenharia de software e inteligência artificial. Projeto de conclusão focado em machine learning aplicado a sistemas web."
+      }
+    ]
+  }
+]

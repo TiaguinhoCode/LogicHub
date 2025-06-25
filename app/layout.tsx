@@ -1,27 +1,22 @@
 // Css
 import "@/styles/globals.css";
-import 'react-toastify/dist/ReactToastify.css'
+
+// Configuração
+import { inter } from "@/config/fonts";
 
 // Next
 import { Metadata } from "next";
-import clsx from "clsx";
-
-// Configuração
-import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
-
-// Bibliotecas
-import { ToastContainer } from "react-toastify";
+import NextTopLoader from "nextjs-toploader";
 
 // Vercel
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
-// Utils
-import { GoogleAnalytics } from "@/utils/analytics";
-
+// metados
 export const metadata: Metadata = {
-  title: "Bio - LogicHub",
+  title: "LogicHub - Consultoria em T.I",
+  description:
+    "Consultoria em TI e desenvolvimento de software sob medida para empresas, proporcionando inovação, eficiência e transformação digital.",
   keywords: [
     "consultoria de TI",
     "serviços de tecnologia da informação",
@@ -32,36 +27,47 @@ export const metadata: Metadata = {
     "transformação digital",
     "sistemas empresariais",
     "lógica hub",
-    "Logichub consultoria TI",
+    "logichub consultoria TI",
+    "empresa t.i",
     "software",
     "saas",
-    "desenvolvedor"
+    "desenvolvedor",
   ],
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    type: 'website',
-    locale: 'pt_BR',
-    url: 'https://logichub.com.br',
+    title: "LogicHub - Consultoria em T.I",
+    description:
+      "Consultoria em TI e desenvolvimento de software sob medida para empresas, proporcionando inovação, eficiência e transformação digital.",
+    images: ["/favicon.ico"],
   },
-  description: siteConfig.description,
-  icons: {
-    icon: "/favicon.png",
-  },
+  icons: [{ url: "/favicon.ico", type: "image/png", sizes: "180x180" }],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="pt-br" suppressHydrationWarning>
-      <head><GoogleAnalytics /></head>
-      <body
-        className={clsx(
-          "font-sans antialiased ",
-          fontSans.variable
-        )}
-      >
+    <html suppressHydrationWarning lang="pt-br">
+      <head />
+      <body className={inter.className}>
         {children}
-        <SpeedInsights />
         <Analytics />
-        <ToastContainer autoClose={3000} />
+        <SpeedInsights />
+        <NextTopLoader />
       </body>
     </html>
   );

@@ -1,91 +1,84 @@
+'use client';
+
 // Bibliotecas
-import {
-  Navbar as HeroUINavbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
-} from "@heroui/navbar";
-import { Button } from "@heroui/button";
+import { Navbar as HeroUINavbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu } from "@heroui/navbar";
 import { Link } from "@heroui/link";
-import { link as linkStyles } from "@heroui/theme";
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+
+// React
+import { useState } from "react";
 
 // Next
-import NextLink from "next/link";
-import clsx from "clsx";
+import Image from "next/image";
 
-// Config
-import { siteConfig } from "@/config/site";
+// Imagens
+import slogan from "@/public/img/slogan.png";
 
-// Componentes
-import { Logo } from "@/components/icons";
+export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-export const Navbar = () => {
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (current) => {
+    setScrolled(current > 50);
+  });
+
+  const menuItems = [
+    { name: "Serviços", href: "#services" },
+    { name: "Benefícios", href: "#benefits" },
+    { name: "Projetos", href: "#projects" },
+    { name: "Equipe", href: "#team" },
+    { name: "Contato", href: "#contact" },
+  ];
+
 
   return (
     <HeroUINavbar
-      className="sticky top-0 z-50 border-b border-gray-600  bg-gray-900/70 dark:bg-gray-800/70 backdrop-blur-md shadow-lg px-6 py-3"
+      onMenuOpenChange={setIsOpen}
+      isMenuOpen={isOpen}
       maxWidth="xl"
-      position="static"
+      classNames={{ base: `fixed top-0 w-full z-50 backdrop-blur-md transition-all duration-300 ${scrolled ? 'bg-black/50 shadow-md' : 'bg-transparent'}` }}
     >
-      <NavbarContent justify="start">
-        <NavbarBrand as="li" className="max-w-fit">
-          <NextLink href="/" className="flex items-center gap-2">
-            <Logo />
-          </NextLink>
-        </NavbarBrand>
+      <NavbarBrand>
+        <motion.div animate={scrolled ? { scale: 0.9 } : { scale: 1 }} className="flex items-center space-x-2">
+          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
+            <Image priority src={slogan} alt="Slogan" className="-scale-x-100" />
+          </div>
+          <span className="text-xl font-extrabold text-white">LOGICHUB</span>
+        </motion.div>
+      </NavbarBrand>
+
+      <NavbarContent justify="end">
+        <NavbarMenuToggle className="text-white/80 hover:text-white sm:hidden" aria-label="Menu" />
       </NavbarContent>
 
-      <NavbarContent
-        justify="center"
-        className="hidden lg:flex flex-1"
-      >
-        <ul className="flex gap-8">
-          {siteConfig.navItems.map((item) => {
-            return (
-              <NavbarItem key={item.href}>
-                <NextLink
-                  href={item.href}
-                  className={clsx(
-                    linkStyles({ color: "foreground" }),
-                    "relative text-lg transition-colors duration-200 text-white hover:text-[#3f83f8]",
-                  )}
-                >
-                  {item.label}
-                </NextLink>
-              </NavbarItem>
-            );
-          })}
-        </ul>
-      </NavbarContent>
-
-      <NavbarContent justify="end" className="flex-1 items-center gap-4">
-        <Link href="https://wa.me/558587805592?text=Ol%C3%A1%2C%20estou%20interessado%20em%20seus%20servi%C3%A7os%21">
-          <Button className="bg-[#3f83f8] rounded-lg text-white px-6 hover:shadow-xl transition md:min-w-8 h-8">
-            Contratar
-          </Button>
-        </Link>
-
-        <NavbarMenuToggle className="lg:hidden text-white" aria-label="Abrir menu" />
-      </NavbarContent>
-
-      <NavbarMenu className="lg:hidden ">
-        <div className="flex flex-col h-full dark:bg-gray-900 p-6 space-y-4">
-          {siteConfig.navMenuItems.map((item, idx) => (
-            <NavbarMenuItem key={idx}>
-              <Link
-                href={item.href}
-                size="lg"
-                className="block text-gray-800"
-              >
-                {item.label}
+      <NavbarMenu className="lg:hidden bg-black/50 backdrop-blur-md p-6 rounded-b-lg space-y-4">
+        {menuItems.map((item, i) => (
+          <motion.div
+            key={item.name}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isOpen ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: i * 0.1 }}
+          >
+            <NavbarItem>
+              <Link href={item.href} className="block text-lg font-medium text-gray-200 hover:text-white" onClick={() => setIsOpen(false)}>
+                {item.name}
               </Link>
-            </NavbarMenuItem>
-          ))}
-        </div>
+            </NavbarItem>
+          </motion.div>
+        ))}
       </NavbarMenu>
+
+      <NavbarContent className="hidden sm:flex space-x-6">
+        {menuItems.map(item => (
+          <NavbarItem key={item.name}>
+            <Link href={item.href} className="text-gray-200 hover:text-white transition">
+              {item.name}
+            </Link>
+          </NavbarItem>
+        ))}
+      </NavbarContent>
     </HeroUINavbar>
   );
-};
+}
