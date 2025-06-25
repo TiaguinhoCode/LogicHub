@@ -57,9 +57,9 @@ export default function HeroSection() {
                         transition={{ duration: 0.8 }}
                         className="mb-8"
                     >
-                        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                        <h1 className="text-[42px] md:text-7xl font-bold text-white mb-6 leading-tight">
                             Transformamos
-                            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                            <span className="bg-gradient-to-r px-3 from-blue-400 to-blue-600 bg-clip-text text-transparent">
                                 <AnimatePresence mode='wait'>
                                     <motion.span
                                         key={currentWordIndex}
@@ -83,7 +83,7 @@ export default function HeroSection() {
                             <br />
                             em Soluções
                         </h1>
-                        <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
+                        <p className="text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto">
                             Consultoria especializada em desenvolvimento de software, arquitetura cloud e transformação digital.
                             Levamos sua empresa para o próximo nível tecnológico.
                         </p>

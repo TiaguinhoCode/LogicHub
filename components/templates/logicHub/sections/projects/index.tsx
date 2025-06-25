@@ -68,7 +68,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-20 bg-white/5 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full md:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">
             Projetos em Destaque
@@ -82,7 +82,7 @@ export default function Projects() {
           {projects.map((project) => (
             <AnimatedSection key={project.id}>
               <main className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden border border-white/10 hover:border-blue-400/50 transition-all duration-300 cursor-pointer">
-                <div className="relative h-[16em] overflow-hidden">
+                <div className="relative h-[13em] md:h-[16em] overflow-hidden">
                   <Image
                     priority
                     src={project.image}
