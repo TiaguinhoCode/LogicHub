@@ -46,9 +46,9 @@ export default function Header({ data }: { data: sumaryItems }) {
           <Button
             as="a"
             target="_blank"
-            // https://logichub.com.br/relatory/curriculo_${data.name.split(" ")[0]}.pdf https://logichub.com.br/relatory/curriculo_tiago.pdf
+            // https://logichub.com.br/relatory/curriculo_tiago.pdf
             rel="noopener noreferrer"
-            href={`https://logichub.com.br/relatory/curriculo_${data.name.split(" ")[0]}.pdf`}
+            href={data.name.split(" ")[0].toLocaleLowerCase() === 'tiago' ? `https://logichub.com.br/relatory/curriculo_tiago.pdf` : 'https://logichub.com.br/relatory/curriculo_jamille.pdf'}
             download={`Curriculo_${data.name.split(" ")[0]}.pdf`}
             variant="solid"
             startContent={<MdOutlineFileDownload className="text-lg" />}
