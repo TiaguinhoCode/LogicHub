@@ -4,6 +4,7 @@
 import { Avatar, Button } from "@heroui/react";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { IoIosArrowBack } from "react-icons/io";
+import Link from "next/link";
 
 // Tipagem
 type sumaryItems = {
@@ -21,6 +22,7 @@ type sumaryItems = {
 };
 
 export default function Header({ data }: { data: sumaryItems }) {
+  console.log(`/relatory/curriculo_${data.name.split(" ")[0]}.pdf`);
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-white/20 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-5 sm:space-y-0 sm:space-x-6">
@@ -43,18 +45,14 @@ export default function Header({ data }: { data: sumaryItems }) {
         </div>
 
         <div className="flex flex-wrap items-center justify-start sm:justify-end gap-2 w-full md:w-auto">
-          <Button
-            as="a"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
             href={`/relatory/curriculo_${data.name.split(" ")[0]}.pdf`}
             download={`Curriculo_${data.name.split(" ")[0]}.pdf`}
-            variant="solid"
-            startContent={<MdOutlineFileDownload className="text-lg" />}
-            className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 shadow-lg"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium hover:from-blue-700 hover:to-indigo-700 shadow-lg transition-transform duration-150 active:scale-95"
           >
+            <MdOutlineFileDownload className="text-lg" />
             Download CV
-          </Button>
+          </Link>
           <Button
             as="a"
             href="/"
